@@ -19,25 +19,22 @@ class FlowHandler
       # Dima prosi Alexę o rachunek, tworzony jest order & kontrakt z restauracją
       Contracts::Creator.perform(dima)
 
-      #04 dzielenie http://50cwvb.axshare.com/#g=1&p=04-kontrakt-dzielenie_1
-      # Dima prosi Alexę o dzielenie rachunku, pod obecnym widokiem (03) dodany zostaje Transaction na 0 Dimy (na 0 ze względu na status FriendFound)
-      contract = Contract.last #todo!!!
-      dima = User.find_by_name('Dima')
-      item_dima = OrderItem.find_by_name('Hamburger')
-      dima.transactions.create(contract_id: contract.id, amount: 0, status: 'FRIEND_FOUND', name: item_dima.name)
-
-      # 05 http://50cwvb.axshare.com/#g=1&p=05-dodanie-ludzi
-      # Alexa znalazła trzech przyjaciół Dimy przy stole, wyświetlamy popup
-
-      #dodanie ludzi jako |Friend Found| - czyli pokazujemy same imiona, bez kwot, mimo że będą one w bazie - popup
-      contract = Contract.last #todo!!!
-      Transactions::Creator.perform(contract)
-      # na widoku wyświetl popup transactions ze statusem FRIEND_FOUND
 
       # 06  - lista http://50cwvb.axshare.com/#g=1&p=06-ludzie-dodani
       # zostaje wybrana opcja "Wybierz wszystkich"
       # tylko zmiana w widokach
       # wyświetl listę transactions ze statusem FRIEND_FOUND
+
+      # Dima prosi Alexę o dzielenie rachunku, pod obecnym widokiem (03) dodany zostaje Transaction na 0 Dimy (na 0 ze względu na status FriendFound)
+      contract = Contract.last #todo!!!
+      dima = User.find_by_name('Dima')
+
+      item_dima = OrderItem.find_by_name('Hamburger')
+      dima.transactions.create(contract_id: contract.id, amount: 0, status: 'FRIEND_FOUND', name: item_dima.name)
+
+      contract = Contract.last #todo!!!
+      Transactions::Creator.perform(contract)
+
 
       # 07 http://50cwvb.axshare.com/#g=1&p=07-przydzielanie
       # Dima mówi po kolei alexy kto co zamówił, w odpowiedzi kwoty i produkt pojawiają się przy danej osobie
