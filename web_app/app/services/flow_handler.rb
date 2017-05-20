@@ -39,12 +39,13 @@ class FlowHandler
       #OrderItem.find_by_name('Pizza')
       # na ten moment na sztywno para User & OrderItem
 
-      client = User.find_by_name('Marcin')
-      order_item = OrderItem.find_by_name('Pizza')
       # musi być:
       # Marcin & Pizza
       # Radek & Guiness
       # Jacek & Pilsner
+
+      client = User.find_by_name('Marcin')
+      order_item = OrderItem.find_by_name('Pizza')
       OrderItemAssigner.perform(client: client, order_item: order_item)
 
       #iteracje kończą się widokiem 08 (gdy przypiszemy wszystkie produkty)
