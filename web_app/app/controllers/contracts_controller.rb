@@ -1,6 +1,6 @@
 class ContractsController < ApplicationController
 
-  respond_to :html, :xml, :json
+  respond_to :html, :js
   before_action :set_contract, only: [:show, :edit, :update, :destroy]
 
   def index
