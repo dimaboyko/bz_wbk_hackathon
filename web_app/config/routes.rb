@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'pages#main'
   resources :contracts
 
+  get 'reset' => 'dev#reset'
+
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       get 'status' => 'status#check'
