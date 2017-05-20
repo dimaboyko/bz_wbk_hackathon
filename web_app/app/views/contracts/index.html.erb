@@ -1,0 +1,22 @@
+<h1>List of contracts</h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+
+  <% @contracts.each do |contract| %>
+    <tr>
+      <td><%= link_to contract.id, contract %></td>
+      <td>
+        <%= link_to 'Edit', edit_contract_path(contract.id) %>
+        <%= link_to 'Delete', contract, :method => 'delete' %>
+      </td>
+    </tr>
+  <% end -%>
+</table>
+
+<p><%= link_to 'New contract', new_contract_path %></p>

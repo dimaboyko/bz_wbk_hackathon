@@ -1,0 +1,10 @@
+<h3> CONTRACT CREATED AT:   <%= @contract.created_at %></h3>
+
+Contract between <%= @contract.owner_id %> and <%= @contract.client_id %><br>
+ORDER:<br>
+<%= @contract.order.id %> <br>
+
+<% @contract.order.order_items.each do |item| %>
+  <%= item.inspect %> <br>
+<% end -%>
+

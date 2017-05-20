@@ -53,9 +53,9 @@ ActiveRecord::Schema.define(version: 20170520150631) do
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "available_amount", default: "500"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
+    t.integer  "available_amount", default: 500
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
 end
