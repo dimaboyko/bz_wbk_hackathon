@@ -1,6 +1,14 @@
 $('.x-call-transactions').remove();
-$('.x-transaction-table').removeClass('hide');
 
+// show split bill header
+$('.x-split-container').html('<%= j(render partial: "contracts/elements/split",
+  locals: { contract: @contract }) %>')
+
+// replace tables with friends table
+$('.x-table-container').html('<%= j(render partial: "contracts/elements/friends",
+  locals: { contract: @contract }) %>');
+
+// fill friends list
 var container = $('.x-transaction-containers');
 container.html('<%= j(render partial: "transactions/transaction",
   collection: @transactions, formats: :html) %>');

@@ -1,0 +1,24 @@
+<div class="invoice-v1-header">
+  <div class="row">
+    <div class="col-md-6">
+      <p>Numer</p>
+      <p><strong>12/32/2017</strong></p>
+    </div>
+
+    <div class="col-md-2">
+      <p>Data utworzenia</p>
+      <p><strong><%= I18n.l contract.created_at, format: :polish %></strong></p>
+    </div>
+
+    <div class="col-md-2">
+      <p>Ważność</p>
+      <p><strong>10 minut</strong></p>
+    </div>
+
+    <div class="col-md-2">
+      <p>Status</p>
+      <p><strong><%= contract.status %></strong></p>
+    </div>
+  </div>
+</div>
+<hr>

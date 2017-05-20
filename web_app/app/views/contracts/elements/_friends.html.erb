@@ -1,6 +1,4 @@
-<%= link_to 'Alexa dzielę rachunek! (utwórz liste transakcji / przyjaciol)',
-    transactions_path, method: :post, remote: true, class: 'x-call-transactions' if @contract.transactions.empty? %>
-<table class="table table-striped table-bordred x-transaction-table <%= 'hide' if @contract.transactions.empty? %> ">
+<table class="table table-striped table-bordred">
   <thead>
     <tr>
       <th><%= link_to 'Uczestnicy (Alexa awaria!)', '#', class: 'x-transaction-toggle-all' %></th>
@@ -11,6 +9,6 @@
   </thead>
   <tbody class="x-transaction-containers">
   <%= render partial: "transactions/transaction",
-collection: @contract.transactions %>
+collection: contract.transactions %>
   </tbody>
 </table>

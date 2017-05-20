@@ -1,0 +1,25 @@
+<div class="invoice-v1-header">
+  <h4>PODZIEL RACHUNEK</h4>
+
+  <div class="row">
+    <div class="col-md-6">
+      <p>Konto do płatności</p>
+      <p><strong>PL951090980568751929917064286869</strong></p>
+    </div>
+
+    <div class="col-md-2 x-split-number hide">
+      <p>Numer</p>
+      <p><strong>12/32/2017</strong></p>
+    </div>
+
+    <div class="col-md-2 x-split-create-date hide">
+      <p>Data utworzenia</p>
+      <p><strong><%= I18n.l contract.created_at, format: :polish %></strong></p>
+    </div>
+
+    <div class="col-md-2 x-split-paid-date hide">
+      <p>Data załapty</p>
+      <p><strong><%= I18n.l contract.updated_at, format: :polish %></strong></p>
+    </div>
+  </div>
+</div>
