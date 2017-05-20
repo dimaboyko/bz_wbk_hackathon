@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>mochila</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= render 'layouts/elements/head' %>
 
   <body>
-    <%= yield %>
+    <div class="container invoice invoice-v1">
+      <div class="panel invoice-v1-content">
+        <%= render 'layouts/elements/header' %>
+
+        <div class="panel-body">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
