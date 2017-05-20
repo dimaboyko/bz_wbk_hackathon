@@ -1,0 +1,26 @@
+ <table class="table table-striped">
+  <tbody>
+    <tr>
+      <th class="col-lg-8">Szczegóły</th>
+      <th></th>
+    </tr>
+    <tr>
+      <td>
+        <strong>
+          <ul class="list-group">
+            <% @contract.order.order_items.each do |order_item| %>
+              <li>
+                <span class="pull-right"><%= order_item.amount %> PLN</span>
+                <p><%= order_item.name %></p>
+              </li>
+            <% end -%>
+          </ul>
+        </strong>
+      </td>
+      <td>
+        <strong>Menu:</strong>
+        <p>Pozycje zgodne</p>
+      </td>
+    </tr>
+  </tbody>
+</table>

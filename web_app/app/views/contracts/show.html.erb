@@ -1,41 +1,56 @@
-Data utworzenia:   <%= @contract.created_at %><br>
-<br><br>
-ROBOCZy kontrakt między <%= @contract.owner.name %> and <%= @contract.client.name %><br>
-<br><br>
-Numer<br>
-12/32/2017<br>
-<br><br>
-Właściciel<br>
-BROWAR STU MOSTÓW<br>
-ul. Jana Długosza 2<br>
-51-162 Wrocław<br>
-<br><br>
-STOLIK 16<br>
-<br><br>
-Konto do płatności<br>
-PL951090980568751929917064286869<br>
+<div class="invoice-v1-header">
+  <div class="row">
+    <div class="col-lg-3">
+      <p>Numer</p>
+      <p><strong>12/32/2017</strong></p>
+    </div>
 
-<br><br>
-Szczegóły:<br>
+    <div class="col-lg-3">
+      <p>Data utworzenia</p>
+      <p><strong><%= I18n.l @contract.created_at, format: :polish %></strong></p>
+    </div>
 
-<% @contract.order.order_items.each do |item| %>
-  <%= item.name %>  <%= item.amount %> <br>
-<% end -%>
+    <div class="col-lg-3">
+      <p>Ważność</p>
+      <p><strong>10 minut</strong></p>
+    </div>
 
-<!-- <p><%= link_to 'Alexa chce podzielić rachunek (znajdz przyjaciół)', contracts_path, method: :post %></p> -->
-<br><br>
+    <div class="col-lg-3">
+      <p>Status</p>
+      <p><strong><%= @contract.status %></strong></p>
+    </div>
+  </div>
+</div>
+<hr>
 
-USERS:<br>
-<%= @contract.users.size %> <br>
-<% @contract.users.each do |item| %>
-  <%= item.inspect %> <br>
-<% end -%>
+<div class="responsive-table">
+  <%= render 'contracts/elements/owner' %>
 
-<br><br>
+  <%= render 'contracts/elements/details' %>
 
-TRANSACTIONS:<br>
-<%= @contract.transactions.size %> <br>
+  <%= render 'contracts/elements/payment_data' %>
 
-<% @contract.transactions.each do |item| %>
-  <%= item.inspect %> <br>
-<% end -%>
+  <%= render 'contracts/elements/items' %>
+</div>
+
+
+  Contract between <%= @contract.owner_id %> and<br>
+  ORDER:<br>
+  <%= @contract.order.id %> <br>
+
+  <br><br>
+
+  USERS:<br>
+  <%= @contract.users.size %> <br>
+  <% @contract.users.each do |item| %>
+    <%= item.inspect %> <br>
+  <% end -%>
+
+  <br><br>
+
+  TRANSACTIONS:<br>
+  <%= @contract.transactions.size %> <br>
+
+  <% @contract.transactions.each do |item| %>
+    <%= item.inspect %> <br>
+  <% end -%>
