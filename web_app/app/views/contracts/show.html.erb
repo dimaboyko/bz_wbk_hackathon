@@ -10,6 +10,14 @@ ORDER:<br>
 
 <br><br>
 
+USERS:<br>
+<%= @contract.users.size %> <br>
+<% @contract.users.each do |item| %>
+  <%= item.inspect %> <br>
+<% end -%>
+
+<br><br>
+
 TRANSACTIONS:<br>
 <%= @contract.transactions.size %> <br>
 
