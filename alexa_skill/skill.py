@@ -14,14 +14,16 @@ def wanna_pay_intent():
     #create contract
     headers = {'X-Api-Key': 'brobill'}
         #curl -H "X-Api-Key: mochila" http://localhost:3000/api/v1/status.json
-    r = requests.post('://localhost:3000/api/v1/create_contract.json', headers = headers)
+    r = requests.post('http://localhost:3000/api/v1/create_contract.json', headers = headers)
 
     return question(render_template('contract_created'))
 
 @ask.intent('SplitIntent')
 def split_intent():
-    # ping to find users
-    list_or_users = {"Jack": False, "Karola": False, "Marchin": False, "Radek": False}
+    headers = {'X-Api-Key': 'brobill'}
+    r = requests.post('http://localhost:3000/api/v1/split_the_bill.json', headers = headers)
+
+    list_or_users = {"Jack": False, "Marchin": False}
     session.attributes['list_or_users'] = list_or_users
     first_user = session.attributes['user'] = list(list_or_users)[0]
     return question(render_template('split_the_bill', first_user = first_user))
@@ -33,7 +35,9 @@ def product_statement(product):
         session.attributes['list_or_users'][user] = product
         del session.attributes['user']
         # send request with {user: product}
-        r = requests.get('http://google.com')
+        headers = {'X-Api-Key': 'brobill'}
+        payload = {'client': user, 'item': product}
+        r = requests.post('http://localhost:3000/api/v1/match_product.json', headers = headers,data = payload)
         a = session.attributes['list_or_users']
         next_user = list({k: v for k, v in a.items() if v == False})[0]
         if next_user:
@@ -44,8 +48,8 @@ def product_statement(product):
 
 @ask.intent('ConfirmIntent')
 def confirm_intent():
-    # ping 4 phones for notifications
-    r = requests.get('http://google.com')
+    headers = {'X-Api-Key': 'brobill'}
+    r = requests.post('http://localhost:3000/api/v1/ping_phones.json', headers = headers)
     return statement(render_template('as_soos_as_approved'))
 
 if __name__ == '__main__':

@@ -11,10 +11,9 @@ module Contracts
 
       #create OrderItems
       # po odkomentowaniu trzeba zmienić w Transactions::Creator find-y
-      order.order_items.create(name: 'Pilsner', amount: 10)
-      order.order_items.create(name: 'Guiness', amount: 15)
-      #order.order_items.create(name: 'Lager', amount: 10)
-      order.order_items.create(name: 'Hamburger', amount: 5)
+      order.order_items.create(name: 'Fries', amount: 10)
+      order.order_items.create(name: 'Hamburger', amount: 10)
+      order.order_items.create(name: 'Beer', amount: 10)
       order.order_items.create(name: 'Pizza', amount: 30)
       order.update_columns(total_amount: order.order_items.sum(&:amount))
 

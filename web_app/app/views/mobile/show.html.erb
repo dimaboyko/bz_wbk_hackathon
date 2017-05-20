@@ -1,0 +1,7 @@
+
+<% if @transaction %>
+  Dima has invited you to pay the contract for <%= @transaction.name %> from <%= @transaction.created_at %>
+  <%= link_to 'CONFIRM PAYMENT', pay_mobile_path(id: @transaction.id.to_s), method: :post %>
+  <% else %>
+  You have no contracts to pay
+  <% end -%>
