@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170520150631) do
+ActiveRecord::Schema.define(version: 20170520184725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,43 +20,43 @@ ActiveRecord::Schema.define(version: 20170520150631) do
     t.integer  "client_id"
     t.integer  "order_id"
     t.string   "status"
-    t.integer  "total_amount"
-    t.integer  "paid_amount"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "total_amount", default: 0
+    t.integer  "paid_amount",  default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "order_items", force: :cascade do |t|
     t.integer  "order_id"
     t.string   "name"
-    t.integer  "amount"
+    t.integer  "amount",     default: 0
     t.integer  "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "total_amount"
-    t.integer  "contract_id"
-    t.integer  "tip_amount"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "total_amount", default: 0
+    t.integer  "tip_amount",   default: 0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "contract_id"
-    t.integer  "amount"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "user_id"
+    t.string   "contract_id"
+    t.integer  "amount",      default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.string   "status"
+    t.string   "name"
   end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.integer  "available_amount", default: 500
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.string   "available_amount", default: "500"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
 end

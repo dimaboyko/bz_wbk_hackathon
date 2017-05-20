@@ -24,7 +24,7 @@ class FlowHandler
       contract = Contract.last #todo!!!
       dima = User.find_by_name('Dima')
       item_dima = OrderItem.find_by_name('Hamburger')
-      dima.transactions.create(contract_id: contract.id, amount: item_dima.amount, status: 'FRIEND_FOUND')
+      dima.transactions.create(contract_id: contract.id, amount: 0, status: 'FRIEND_FOUND', name: item_dima.name)
 
       # 05 http://50cwvb.axshare.com/#g=1&p=05-dodanie-ludzi
       # Alexa znalazła trzech przyjaciół Dimy przy stole, wyświetlamy popup
@@ -43,21 +43,32 @@ class FlowHandler
       # Dima mówi po kolei alexy kto co zamówił, w odpowiedzi kwoty i produkt pojawiają się przy danej osobie
 
       #iteracja dla każdego przyjaciela
-      #transaction_id => status zmieniony z :friend_found na :new
+
+      #User.find_by_name('Marcin')
+      #OrderItem.find_by_name('Pizza')
+      # na ten moment na sztywno para User & OrderItem
+
+      client = User.find_by_name('Marcin')
+      order_item = OrderItem.find_by_name('Pizza')
+      # musi być:
+      # Marcin & Pizza
+      # Radek & Guiness
+      # Jacek & Pilsner
+      OrderItemAssigner.perform(client: client, order_item: order_item)
+
       #iteracje kończą się widokiem 08 (gdy przypiszemy wszystkie produkty)
 
       #09 http://50cwvb.axshare.com/#g=1&p=09-wyslane
       # każdy na "mobilnej wersji" potwierdza swoja transakcję
       # iteracje zmieniające status z :new na :paid dla każdego kliku
+      #TransactionPaymentPerformer.perform(client: client, order_item: order_item)
+
 
       #iteracje koncza  sie 10, gdy wszyscy opłacą
-
 
       # 11 akcja opłacenia kontraktu http://50cwvb.axshare.com/#g=1&p=11-zaplacono
       # kończy się zmianą statusu kontraktu
       puts "Done!"
-
     end
   end
-
 end

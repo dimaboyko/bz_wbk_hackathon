@@ -15,9 +15,9 @@ module Transactions
       item2 = OrderItem.find_by_name('Guiness')
       item3 = OrderItem.find_by_name('Pilsner')
 
-      friend1.transactions.create(contract_id: contract.id, amount: item1.amount, status: 'FRIEND_FOUND')
-      friend2.transactions.create(contract_id: contract.id, amount: item2.amount, status: 'FRIEND_FOUND')
-      friend3.transactions.create(contract_id: contract.id, amount: item3.amount, status: 'FRIEND_FOUND')
+      friend1.transactions.create(contract_id: contract.id, amount: 0, status: 'FRIEND_FOUND', name: item1.name)
+      friend2.transactions.create(contract_id: contract.id, amount: 0, status: 'FRIEND_FOUND', name: item2.name)
+      friend3.transactions.create(contract_id: contract.id, amount: 0, status: 'FRIEND_FOUND', name: item3.name)
     end
 
     private
