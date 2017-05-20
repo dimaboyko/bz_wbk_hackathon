@@ -8,6 +8,7 @@ class OrderItemsController < ApplicationController
 
     OrderItemAssigner.perform(client: client, order_item: order_item)
 
+    contract = Contract.last # tmp
     redirect_to contract_path(contract)
   end
 end
