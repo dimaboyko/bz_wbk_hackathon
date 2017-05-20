@@ -7,6 +7,12 @@ module Transactions
     end
 
     def perform
+      # create Dima transaction
+      dima = User.find_by_name('Dima')
+      item_dima = OrderItem.find_by_name('Hamburger')
+      dima.transactions.create(contract_id: contract.id, amount: 0, status: 'FRIEND_FOUND', name: item_dima.name)
+
+      # create friends transactions
       friend1 = User.create(name: 'Marcin', available_amount: Random.rand(1_000..5_000))
       friend2 = User.create(name: 'Radek', available_amount: Random.rand(1_000..5_000))
       friend3 = User.create(name: 'Jacek', available_amount: Random.rand(1_000..5_000))

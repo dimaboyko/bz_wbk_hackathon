@@ -17,8 +17,8 @@ class FlowHandler
 
       # 02/03 http://50cwvb.axshare.com/#g=1&p=02-powstal-kontrakt-niepotwierdzony_1
       # Dima prosi Alexę o rachunek, tworzony jest order & kontrakt z restauracją
-      Contracts::Creator.perform(dima)
 
+      Contracts::Creator.perform(dima)
 
       # 06  - lista http://50cwvb.axshare.com/#g=1&p=06-ludzie-dodani
       # zostaje wybrana opcja "Wybierz wszystkich"
@@ -26,12 +26,6 @@ class FlowHandler
       # wyświetl listę transactions ze statusem FRIEND_FOUND
 
       # Dima prosi Alexę o dzielenie rachunku, pod obecnym widokiem (03) dodany zostaje Transaction na 0 Dimy (na 0 ze względu na status FriendFound)
-      contract = Contract.last #todo!!!
-      dima = User.find_by_name('Dima')
-
-      item_dima = OrderItem.find_by_name('Hamburger')
-      dima.transactions.create(contract_id: contract.id, amount: 0, status: 'FRIEND_FOUND', name: item_dima.name)
-
       contract = Contract.last #todo!!!
       Transactions::Creator.perform(contract)
 
@@ -45,12 +39,13 @@ class FlowHandler
       #OrderItem.find_by_name('Pizza')
       # na ten moment na sztywno para User & OrderItem
 
-      client = User.find_by_name('Marcin')
-      order_item = OrderItem.find_by_name('Pizza')
       # musi być:
       # Marcin & Pizza
       # Radek & Guiness
       # Jacek & Pilsner
+
+      client = User.find_by_name('Marcin')
+      order_item = OrderItem.find_by_name('Pizza')
       OrderItemAssigner.perform(client: client, order_item: order_item)
 
       #iteracje kończą się widokiem 08 (gdy przypiszemy wszystkie produkty)
