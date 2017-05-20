@@ -31,21 +31,6 @@
   <%= render 'contracts/elements/payment_data' %>
 
   <%= render 'contracts/elements/items' %>
+
+  <%= render 'contracts/elements/friends' %>
 </div>
-
-<% if @contract.transactions.empty? %>
- <%= link_to 'Alexa dzielę rachunek! (utwórz liste transakcji / przyjaciol)', transactions_path, method: :post %>
-<% else %>
-  <div class='x-transaction-containers'>
-
-  <% @contract.transactions.each do |item| %>
-    <div class="x-transaction">
-      <%= item.user.name %>
-      <%= item.name  unless item.status == 'FRIEND_FOUND'%>
-      <%= item.amount %> PLN
-      <br>
-    </div>
-  <% end -%>
-  </div>
-<% end %>
-

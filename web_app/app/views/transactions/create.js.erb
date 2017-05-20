@@ -1,0 +1,6 @@
+$('.x-call-transactions').remove();
+$('.x-transaction-table').removeClass('hide');
+
+var container = $('.x-transaction-containers');
+container.html('<%= j(render partial: "transactions/transaction",
+  collection: @transactions, formats: :html) %>');
