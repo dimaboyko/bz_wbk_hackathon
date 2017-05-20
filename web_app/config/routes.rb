@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'pages#main'
   resources :contracts
 
+  post ':client_name/assign/:order_item_name' => 'order_items#assign', as: :assing_order_item
+
   get 'reset' => 'dev#reset'
 
   namespace :api, defaults: { format: :json } do

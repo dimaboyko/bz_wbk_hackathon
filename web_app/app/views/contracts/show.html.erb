@@ -33,23 +33,19 @@
   <%= render 'contracts/elements/items' %>
 </div>
 
+<% if @contract.transactions.empty? %>
+ <%= link_to 'Alexa dzielę rachunek! (utwórz liste transakcji / przyjaciol)', transactions_path, method: :post %>
+<% else %>
+  <div class='x-transaction-containers'>
 
-  Contract between <%= @contract.owner_id %> and<br>
-  ORDER:<br>
-  <%= @contract.order.id %> <br>
-
-  <br><h2>Ludzie:</h2><br>
-
-  <% if @contract.transactions.empty? %>
-   <%= link_to 'Alexa dzielę rachunek! (utwórz liste transakcji / przyjaciol)', transactions_path, method: :post %>
-  <% else %>
-    <div class='x-transaction-containers'>
-
-    <% @contract.transactions.each do |item| %>
-      <div class="x-transaction">
-        <%= item.user.name %> <%= item.name %> <%= item.amount %> PLN<br>
-      </div>
-    <% end -%>
+  <% @contract.transactions.each do |item| %>
+    <div class="x-transaction">
+      <%= item.user.name %>
+      <%= item.name  unless item.status == 'FRIEND_FOUND'%>
+      <%= item.amount %> PLN
+      <br>
     </div>
-  <% end %>
+  <% end -%>
+  </div>
+<% end %>
 

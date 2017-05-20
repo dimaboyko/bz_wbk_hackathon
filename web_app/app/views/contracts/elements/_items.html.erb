@@ -11,7 +11,10 @@
             <% @contract.order.order_items.each do |order_item| %>
               <li>
                 <span class="pull-right"><%= order_item.amount %> PLN</span>
-                <p><%= order_item.name %></p>
+                <p><%= order_item.name %>
+
+                   <%# link_to 'Alexa przypisz produkt!', assing_order_item_path(client_name: 'x', order_item_name: 'x'), method: :post %>
+                </p>
               </li>
             <% end -%>
           </ul>
