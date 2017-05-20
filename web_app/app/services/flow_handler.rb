@@ -42,6 +42,9 @@ class FlowHandler
       #OrderItem.find_by_name('Pizza')
       # na ten moment na sztywno para User & OrderItem
 
+      # client = User.find_by_name('Marchin')
+      # order_item = OrderItem.find_by_name('Pizza')
+
       # musi być:
       # Marcin & Pizza
       # Radek & Guiness

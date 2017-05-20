@@ -12,11 +12,15 @@ def start_skill():
 @ask.intent('WannaPayIntent')
 def wanna_pay_intent():
     #create contract
-    r = requests.get('http://google.com')
+    headers = {'X-Api-Key': 'brobill'}
+        #curl -H "X-Api-Key: mochila" http://localhost:3000/api/v1/status.json
+    r = requests.post('://localhost:3000/api/v1/create_contract.json', headers = headers)
+
     return question(render_template('contract_created'))
 
 @ask.intent('SplitIntent')
 def split_intent():
+    # ping to find users
     list_or_users = {"Jack": False, "Karola": False, "Marchin": False, "Radek": False}
     session.attributes['list_or_users'] = list_or_users
     first_user = session.attributes['user'] = list(list_or_users)[0]

@@ -20,6 +20,6 @@ class OrderItemAssigner
   def transaction
     # TODO jak powiązać transakcje klienta z danym queue item???
     # na razie jest na sztywno przez nazwe
-    @transaction ||= Transaction.find_by_name(order_item.name)
+    @transaction ||= @client.transactions.last
   end
 end
