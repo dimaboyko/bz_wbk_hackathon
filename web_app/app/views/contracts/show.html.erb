@@ -1,36 +1,36 @@
-<div class="invoice-v1-header">
-  <div class="row">
-    <div class="col-lg-3">
-      <p>Numer</p>
-      <p><strong>12/32/2017</strong></p>
-    </div>
+<%= render partial: 'contracts/elements/header', locals: { contract: @contract } %>
 
-    <div class="col-lg-3">
-      <p>Data utworzenia</p>
-      <p><strong><%= I18n.l @contract.created_at, format: :polish %></strong></p>
-    </div>
+<div class="x-split-container"></div>
 
-    <div class="col-lg-3">
-      <p>Ważność</p>
-      <p><strong>10 minut</strong></p>
-    </div>
+<div class="responsive-table x-table-container">
+  <% if @contract.users.present? %>
 
-    <div class="col-lg-3">
-      <p>Status</p>
-      <p><strong><%= @contract.status %></strong></p>
-    </div>
+    <%= render partial: 'contracts/elements/split', locals: { contract: @contract } %>
+
+    <hr>
+
+    <%= render partial: 'contracts/elements/friends', locals: { contract: @contract } %>
+
+  <% else %>
+
+    <%= render 'contracts/elements/owner' %>
+
+    <%= render 'contracts/elements/details' %>
+
+    <%= render 'contracts/elements/payment_data' %>
+
+    <%= render 'contracts/elements/items' %>
+
+  <% end %>
+</div>
+
+<% if @contract.transactions.empty? %>
+  <div class="pull-right">
+    <%= link_to 'Anuluj', contracts_path, class: 'btn btn-default btn-lg' %>
+
+    <button type="button" class="btn btn-primary btn-lg">Zapłać</button>
+
+    <%= link_to 'Podziel',
+      transactions_path, method: :post, remote: true, class: 'x-call-transactions btn btn-success btn-lg' %>
   </div>
-</div>
-<hr>
-
-<div class="responsive-table">
-  <%= render 'contracts/elements/owner' %>
-
-  <%= render 'contracts/elements/details' %>
-
-  <%= render 'contracts/elements/payment_data' %>
-
-  <%= render 'contracts/elements/items' %>
-
-  <%= render 'contracts/elements/friends' %>
-</div>
+<% end %>

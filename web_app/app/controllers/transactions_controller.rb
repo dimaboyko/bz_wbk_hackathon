@@ -3,9 +3,9 @@ class TransactionsController < ApplicationController
 
   # POST
   def create
-    contract = Contract.last #todo!!!
-    ::Transactions::Creator.perform(contract)
-    @transactions = contract.transactions
+    @contract = Contract.last #todo!!!
+    ::Transactions::Creator.perform(@contract)
+    @transactions = @contract.transactions
   end
 
   # PATCH
