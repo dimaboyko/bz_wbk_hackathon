@@ -34,13 +34,3 @@
 
   <%= render 'contracts/elements/friends' %>
 </div>
-
-<%# temp %>
-<% tr = Transaction.find_by_name('Pizza') %>
-<% if tr && tr.status == 'FRIEND_FOUND'  %>
-
-<%   client = User.find_by_name('Marcin')
-     order_item = OrderItem.find_by_name('Pizza')
-  %>
-<%= link_to 'Przypisz Pizze do Marcina', assing_order_item_path(client_id: client.id, order_item_id: order_item.id), method: :post %>
-<% end %>
