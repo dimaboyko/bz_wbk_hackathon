@@ -32,8 +32,7 @@ class ContractsController < ApplicationController
   private
 
   def set_contract
-    # @contract = Contract.find(params[:id])
-    @contract = Contract.find(1)
+    @contract = Contract.last
   end
 
   def contract_params

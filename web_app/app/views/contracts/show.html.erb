@@ -8,3 +8,11 @@ ORDER:<br>
   <%= item.inspect %> <br>
 <% end -%>
 
+<br><br>
+
+TRANSACTIONS:<br>
+<%= @contract.transactions.size %> <br>
+
+<% @contract.transactions.each do |item| %>
+  <%= item.inspect %> <br>
+<% end -%>
