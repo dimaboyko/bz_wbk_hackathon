@@ -1,6 +1,6 @@
 module Api
   module V1
-    class BaseController < ::ActionController::Base
+    class BaseController < ApplicationController
       include ActionController::MimeResponds
       protect_from_forgery with: :null_session
 
@@ -20,7 +20,7 @@ module Api
       end
 
       def valid_api_key?(api_key)
-        api_key.eql?('mochila') # TODO: move to .env gem
+        api_key.eql?('brobill') # TODO: move to .env gem
       end
 
       rescue_from ActiveRecord::RecordNotFound do |e|
