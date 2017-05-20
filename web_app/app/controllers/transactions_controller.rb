@@ -1,11 +1,12 @@
 class TransactionsController < ApplicationController
-  respond_to :js
-
-  # TODO ALL!
+  #respond_to :js
 
   # POST
-  def create # {user_id: 1, contract_id: 1, amount: 100}
-    #::Transactions::Creator.perform(transaction_params)
+  def create
+    contract = Contract.last #todo!!!
+    ::Transactions::Creator.perform(contract)
+
+    redirect_to contract_path(contract)
   end
 
   # PATCH
@@ -13,9 +14,4 @@ class TransactionsController < ApplicationController
    # ::Transactions::Updater.perform(transaction_params)
   end
 
-  private
-
-  def transaction_params
-    params.require(:transaction).permit(:id, :contract_id, :user_id, :amount)
-  end
 end

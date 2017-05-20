@@ -38,19 +38,18 @@
   ORDER:<br>
   <%= @contract.order.id %> <br>
 
-  <br><br>
+  <br><h2>Ludzie:</h2><br>
 
-  USERS:<br>
-  <%= @contract.users.size %> <br>
-  <% @contract.users.each do |item| %>
-    <%= item.inspect %> <br>
-  <% end -%>
+  <% if @contract.transactions.empty? %>
+   <%= link_to 'Alexa dzielę rachunek! (utwórz liste transakcji / przyjaciol)', transactions_path, method: :post %>
+  <% else %>
+    <div class='x-transaction-containers'>
 
-  <br><br>
+    <% @contract.transactions.each do |item| %>
+      <div class="x-transaction">
+        <%= item.user.name %> <%= item.name %> <%= item.amount %> PLN<br>
+      </div>
+    <% end -%>
+    </div>
+  <% end %>
 
-  TRANSACTIONS:<br>
-  <%= @contract.transactions.size %> <br>
-
-  <% @contract.transactions.each do |item| %>
-    <%= item.inspect %> <br>
-  <% end -%>
