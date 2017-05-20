@@ -3,7 +3,7 @@
 <div class="x-split-container"></div>
 
 <div class="responsive-table x-table-container">
-  <% if @contract.users.present? %>
+  <% if @contract.transactions.any? %>
 
     <%= render partial: 'contracts/elements/split', locals: { contract: @contract } %>
 
@@ -22,9 +22,7 @@
     <%= render 'contracts/elements/items' %>
 
   <% end %>
-</div>
 
-<% if @contract.transactions.empty? %>
   <div class="pull-right">
     <%= link_to 'Anuluj', contracts_path, class: 'btn btn-default btn-lg' %>
 
@@ -33,4 +31,4 @@
     <%= link_to 'Podziel',
       transactions_path, method: :post, remote: true, class: 'x-call-transactions btn btn-success btn-lg' %>
   </div>
-<% end %>
+</div>
