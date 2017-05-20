@@ -1,13 +1,13 @@
 *.rbc
 capybara-*.html
 .rspec
-/log
-/tmp
-/db/*.sqlite3
-/db/*.sqlite3-journal
-/public/system
-/coverage/
-/spec/tmp
+/web_app/log
+/web_app/tmp
+/web_app/db/*.sqlite3
+/web_app/db/*.sqlite3-journal
+/web_app/public/system
+/web_app/coverage/
+/web_app/spec/tmp
 *.orig
 rerun.txt
 pickle-email-*.html
@@ -15,7 +15,7 @@ pickle-email-*.html
 .ruby-version
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
-config/initializers/secret_token.rb
+/web_appconfig/initializers/secret_token.rb
 
 # Only include if you have production secrets in this file, which is no longer a Rails default
 # config/secrets.yml
@@ -25,8 +25,8 @@ config/initializers/secret_token.rb
 .env
 
 ## Environment normalization:
-/.bundle
-/vendor/bundle
+/web_app/.bundle
+/web_app/vendor/bundle
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
