@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner_id: 1
+  client_id: 1
+  order_id: 1
+  status: MyString
+  total_amount: 1
+  paid_amount: 1
+
+two:
+  owner_id: 1
+  client_id: 1
+  order_id: 1
+  status: MyString
+  total_amount: 1
+  paid_amount: 1
