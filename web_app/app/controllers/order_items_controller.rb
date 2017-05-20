@@ -3,8 +3,8 @@ class OrderItemsController < ApplicationController
 
   # POST
   def assign
-    @client = User.find_by_name('Marcin')
-    @order_item = OrderItem.find_by_name('Pizza')
+    @client = User.find(params[:client_id])
+    @order_item = OrderItem.find(params[:order_item_id])
 
     OrderItemAssigner.perform(client: @client, order_item: @order_item)
   end

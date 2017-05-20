@@ -5,10 +5,19 @@
   <td>
     <h4><%= transaction.user.name %></h4>
   </td>
-  <td>
-    <h4 class="x-transaction-name"><%= transaction.name unless transaction.status == 'FRIEND_FOUND' %></h4>
-  </td>
+
+  <% if transaction.status == 'FRIEND_FOUND'  %>
+    <td>
+      <div class='x-transaction-link hide'>
+      <%= select_tag "assigner_qi", options_for_select(OrderItem.all.map{ |item| [item.name, item.id, { 'data-url' => assing_order_item_path(client_id: transaction.user.id, order_item_id: item.id) }] }), prompt: 'Wybierz produkt', class: 'x-transaction-select' %>
+      </div>
+      <h4 class="x-transaction-name"></h4>
+    </td>
+  <% else %>
+    <td><h4 class="x-transaction-name"><%= transaction.name %></h4></td>
+  <% end %>
   <td>
     <h4 class="x-transaction-amount"><%= transaction.amount %> PLN</h4>
   </td>
+
 </tr>

@@ -13,3 +13,24 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= require_self
+
+$(document).ready(function(){
+
+  $('body').delegate('.x-transaction-toggle-all', 'click', function(e){
+    e.preventDefault();
+    $(".x-transaction-link").removeClass('hide')
+  });
+
+  $('body').delegate('.x-transaction-select', 'change', function(){
+    url = $(this).find('option:selected').data('url');
+
+    $.ajax({
+      url: url,
+      type: 'POST',
+      dataType: 'script',
+    });
+  });
+
+
+});
