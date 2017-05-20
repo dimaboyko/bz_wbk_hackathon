@@ -1,40 +1,36 @@
-# create Order
-Order.delete_all
-
-order = Order.create
-
-# create OrderItems
-OrderItem.delete_all
-
-order_1 = order.order_items.create(name: 'Piwo', amount: 5, quantity: 1)
-order_2 = order.order_items.create(name: 'Golonka', amount: 20, quantity: 1)
-order_3 = order.order_items.create(name: 'Kawa', amount: 10, quantity: 1)
-order_4 = order.order_items.create(name: 'Orzeszki ziemne', amount: 6, quantity: 1)
-order.update_columns(total_amount: order.order_items.sum(&:amount))
-
-# create owner & client
-# id: nil, name: nil, available_amount: "500"
+# 01 http://50cwvb.axshare.com/#g=1&p=01-pusta-lista_1
+#create client & owner
 User.delete_all
-
-user_1 = User.create(name: 'Dima', available_amount: Random.rand(1_000..5_000))
-user_2 = User.create(name: 'Marcin', available_amount: Random.rand(1_000..5_000))
-user_3 = User.create(name: 'Radek', available_amount: Random.rand(1_000..5_000))
-user_4 = User.create(name: 'Jacek', available_amount: Random.rand(1_000..5_000))
-
 owner = User.create(name: 'Restauracja', available_amount: 1000)
-client = user_1
+dima = User.create(name: 'Dima', available_amount: 500)
 
-# create Contract
+# 02/03 http://50cwvb.axshare.com/#g=1&p=02-powstal-kontrakt-niepotwierdzony_1
 Contract.delete_all
+Order.delete_all
+OrderItem.delete_all
+Contracts::Creator.perform(dima)
 
-contract = Contract.create!(owner_id: owner.id, client_id: client.id,
-  order_id: order.id, status: 'NEW', total_amount:  order.total_amount, paid_amount: 0)
+#04 dzielenie http://50cwvb.axshare.com/#g=1&p=04-kontrakt-dzielenie_1
+contract = Contract.last #todo!!!
+dima = User.find_by_name('Dima')
+item_dima = OrderItem.find_by_name('Hamburger')
+dima.transactions.create(contract_id: contract.id, amount: item_dima.amount, status: 'FRIEND_FOUND')
 
-# create transactions
-# user_id: nil, contract_id: nil, amount: 0, created_at: nil, updated_at: nil, status: nil
+# 05 dodanie ludzi jako |Friend Found| - czyli pokazujemy same imiona, bez kwot  - popup
 Transaction.delete_all
+contract = Contract.last #todo!!!
+Transactions::Creator.perform(contract)
 
-user_1.transactions.create(contract_id: contract.id, amount: order_1.amount, status: 'NEW')
-user_2.transactions.create(contract_id: contract.id, amount: order_2.amount, status: 'NEW')
-user_3.transactions.create(contract_id: contract.id, amount: order_3.amount, status: 'NEW')
-user_4.transactions.create(contract_id: contract.id, amount: order_4.amount, status: 'NEW')
+# 06  -lista
+# tylko zmiana w widokach
+
+# 07
+#iteracja dla każdego przyjaciela
+#transaction_id => status zmieniony z :friend_found na :new
+#iteracje kończą się widokiem 08
+
+
+#09 iteracje zmieniające status z :new na :paid
+
+#iteracje koncza  sie 10
+puts "Done!"

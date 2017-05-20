@@ -16,7 +16,8 @@ class ContractsController < ApplicationController
   end
 
   def create
-    respond_with @contract = Contract.create(contract_params)
+    contract = Contracts::Creator.perform(current_user)
+    redirect_to contract_path(contract)
   end
 
   def update

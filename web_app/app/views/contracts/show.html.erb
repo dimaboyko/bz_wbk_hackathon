@@ -1,13 +1,28 @@
-<h3> CONTRACT CREATED AT:   <%= @contract.created_at %></h3>
+Data utworzenia:   <%= @contract.created_at %><br>
+<br><br>
+ROBOCZy kontrakt między <%= @contract.owner.name %> and <%= @contract.client.name %><br>
+<br><br>
+Numer<br>
+12/32/2017<br>
+<br><br>
+Właściciel<br>
+BROWAR STU MOSTÓW<br>
+ul. Jana Długosza 2<br>
+51-162 Wrocław<br>
+<br><br>
+STOLIK 16<br>
+<br><br>
+Konto do płatności<br>
+PL951090980568751929917064286869<br>
 
-Contract between <%= @contract.owner_id %> and <%= @contract.client_id %><br>
-ORDER:<br>
-<%= @contract.order.id %> <br>
+<br><br>
+Szczegóły:<br>
 
 <% @contract.order.order_items.each do |item| %>
-  <%= item.inspect %> <br>
+  <%= item.name %>  <%= item.amount %> <br>
 <% end -%>
 
+<!-- <p><%= link_to 'Alexa chce podzielić rachunek (znajdz przyjaciół)', contracts_path, method: :post %></p> -->
 <br><br>
 
 USERS:<br>
