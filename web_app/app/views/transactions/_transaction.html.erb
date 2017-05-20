@@ -1,14 +1,14 @@
-<tr class="x-transaction">
+<tr class="x-transaction x-user-id-<%= transaction.user.id %>">
   <td class="col-lg-1">
     <%= image_tag 'default-user.png', size: '100x100' %>
   </td>
   <td>
-    <h3><%= transaction.user.name %></h3>
+    <h4><%= transaction.user.name %></h4>
   </td>
   <td>
-    <%= transaction.name unless transaction.status == 'FRIEND_FOUND' %>
+    <h4 class="x-transaction-name"><%= transaction.name unless transaction.status == 'FRIEND_FOUND' %></h4>
   </td>
   <td>
-    <h4><%= transaction.amount %> PLN</h4>
+    <h4 class="x-transaction-amount"><%= transaction.amount %> PLN</h4>
   </td>
 </tr>

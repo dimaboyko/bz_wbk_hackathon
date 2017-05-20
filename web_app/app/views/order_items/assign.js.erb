@@ -1,0 +1,7 @@
+var container = $('.x-user-id-<%= @client.id %>');
+
+if (container !== undefined) {
+  container.find('.x-transaction-name').html('<%= @order_item.name %>');
+  container.find('.x-transaction-amount').html('<%= @order_item.amount %>PLN');
+}
+
