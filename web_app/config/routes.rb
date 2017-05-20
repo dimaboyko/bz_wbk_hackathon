@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root 'pages#main'
+  resources :transactions, only: [:create, :update]
 
+  root 'pages#main'
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
