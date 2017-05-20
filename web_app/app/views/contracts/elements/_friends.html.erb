@@ -1,0 +1,15 @@
+  <%= link_to 'Alexa dzielę rachunek! (utwórz liste transakcji / przyjaciol)',
+    transactions_path, method: :post, remote: true, class: 'x-call-transactions' %>
+
+ <table class="table table-striped table-bordred x-transaction-table hide">
+  <thead>
+    <tr>
+      <th>Uczestnicy</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody class="x-transaction-containers">
+  </tbody>
+</table>
