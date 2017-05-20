@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20170520133723) do
 
   create_table "transactions", force: :cascade do |t|
     t.string   "user_id"
-    t.string   "integer"
     t.string   "contract_id"
     t.integer  "amount"
     t.datetime "created_at",  null: false
@@ -38,7 +37,6 @@ ActiveRecord::Schema.define(version: 20170520133723) do
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "available_amount", default: "500"
-    t.string   "integer"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
   end
