@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :transactions, only: [:create, :update]
+  resources :transactions, only: [:create, :update] do
+    collection do
+      post :sent
+      post :confirm
+    end
+  end
   root 'pages#main'
   resources :contracts
 
