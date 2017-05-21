@@ -23,7 +23,7 @@ def split_intent():
     headers = {'X-Api-Key': 'brobill'}
     r = requests.post('https://bz-wbk-hackathon.herokuapp.com/api/v1/split_the_bill.json', headers = headers)
 
-    list_or_users = {"Jack": False, "Marchin": False, "Radek": False}
+    list_or_users = {"Dima": False, "Marchin": False, "Radek": False}
     session.attributes['list_or_users'] = list_or_users
     first_user = session.attributes['user'] = list(list_or_users)[0]
     return question(render_template('split_the_bill', first_user = first_user))
