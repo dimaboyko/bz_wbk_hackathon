@@ -23,5 +23,5 @@ var container = $('.x-buttons');
 container.html('<%= j(render partial: "contracts/elements/buttons", locals: { contract: @contract }) %>');
 
 <% if @contract.transactions.any? && @contract.transactions.all? { |t| t.status == 'PAID' } %>
-$('.x-main-container').html('<%= j(render partial: "contracts/elements/sucess", locals: { contract: @contract }) %>');
+$('.x-main-container').html('<%= j(render partial: "contracts/elements/main_container", locals: { contract: @contract }) %>');
 <% end %>
