@@ -6,3 +6,5 @@ if (container !== undefined) {
   container.find('.x-transaction-link').html('');
 }
 
+var container = $('.x-buttons');
+container.html('<%= j(render partial: "contracts/elements/buttons", locals: { contract: Contract.last  }) %>');

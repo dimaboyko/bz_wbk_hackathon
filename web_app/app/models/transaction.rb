@@ -9,4 +9,5 @@ class Transaction < ApplicationRecord
   # PAID - zaplacono
 
   default_scope { order(id: :asc) }
+  scope :only_friend_founds, -> { where(status: 'FRIEND_FOUND') }
 end
