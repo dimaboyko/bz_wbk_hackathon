@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    User.find_by_name('Dima')
+    User.find_by_name('Current')
   end
 
   def authenticate

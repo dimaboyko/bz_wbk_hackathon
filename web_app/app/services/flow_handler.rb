@@ -13,7 +13,7 @@ class FlowHandler
       # KROK 01 http://50cwvb.axshare.com/#g=1&p=01-pusta-lista_1
       # Tworzymy ownera kontraktu - restauracje oraz klienta kontraktu (osobę zalogowaną) - Dimę
       owner = User.create(name: 'Restauracja', available_amount: 1000)
-      dima = User.create(name: 'Dima', available_amount: 500)
+      dima = User.create(name: 'Current', available_amount: 500)
 
       # 02/03 http://50cwvb.axshare.com/#g=1&p=02-powstal-kontrakt-niepotwierdzony_1
       # Dima prosi Alexę o rachunek, tworzony jest order & kontrakt z restauracją
