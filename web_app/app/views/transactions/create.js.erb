@@ -21,3 +21,7 @@ container.html('<%= j(render partial: "transactions/transaction",
 // fill friends list
 var container = $('.x-buttons');
 container.html('<%= j(render partial: "contracts/elements/buttons", locals: { contract: @contract }) %>');
+
+<% if @contract.transactions.any? && @contract.transactions.all? { |t| t.status == 'PAID' } %>
+$('.x-main-container').html('<%= j(render partial: "contracts/elements/sucess", locals: { contract: @contract }) %>');
+<% end %>

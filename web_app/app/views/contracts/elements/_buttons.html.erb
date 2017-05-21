@@ -6,7 +6,7 @@
 <%= link_to 'Wyślij płatności', sent_transactions_path, method: :post, remote: true, class: 'btn btn-success btn-lg' if contract.transactions.any? && contract.transactions.all? { |t| t.status == 'NEW' } %>
 
 
-<%= link_to 'Potwierdź płatności', confirm_transactions_path, method: :post, remote: true, class: 'btn btn-success btn-lg' if contract.transactions.any? && contract.transactions.all? { |t| t.status == 'PAYMENT_REQUESTED' } %>
+<%= link_to 'Potwierdź płatności', confirm_transactions_path, method: :post, remote: true, class: 'btn btn-success btn-lg' if contract.transactions.any? && contract.transactions.any? { |t| t.status == 'PAYMENT_REQUESTED' } %>
 
 <!--<%= link_to 'Anuluj', contracts_path, class: 'btn btn-default btn-lg' %>
 

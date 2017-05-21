@@ -1,29 +1,12 @@
-<div class="invoice-v1-header">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>Konkrakty</h2>
-      <hr>
-    </div>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Konkrakty</h2>
+    <hr>
   </div>
 </div>
-
-<% if @contracts.empty? %>
-  <div class="text-center">
-      <h1>
-        Brak<br>
-        <small>Na Twoim koncie nie ma jeszcze żadnych konkraktów</small>
-      </h1>
-
-    <br><br>
-    <%= link_to 'Utwórz nowy kontrakt', contracts_path,
-      method: :post, class: 'btn btn-success btn-lg' %>
-  </div>
-
-<% else %>
-  <div class="row">
-    <div class="col-md-offset-1 col-md-10">
-      <div class="responsive-table">
-        <% @contracts.each do |contract| %>
+<div class="row">
+  <div class="col-md-offset-1 col-md-10">
+    <div class="responsive-table">
         <div class="invoice-v1-header alert alert-success">
           <div class="row">
             <div class="col-md-2">
@@ -53,14 +36,6 @@
             </div>
           </div>
         </div>
-
-          <div class='pull-right'>
-            <%= link_to "Przejdz do kontraktu", contract, class: 'btn btn-success' %>
-          </div>
-        <% end -%>
-      </div>
     </div>
   </div>
-<% end %>
-
-
+</div>
