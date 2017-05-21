@@ -15,6 +15,25 @@
 //= require_tree .
 //= require_self
 
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+};
+
+function detectConfirmations(){
+  var tables = $('table.table');
+  if (tables.length > 0) {
+    tables.each(function() {
+      var that = $(this);
+      var delay_val = randomInt(1000, 3000);
+      that.delay(delay_val).queue(function() {
+        $(this).find('.x-fetching').addClass("hide");
+        $(this).find('.x-confirmed').removeClass("hide");
+        $(this).addClass("table-confirmed");
+      });
+    });
+  }
+};
+
 $(document).ready(function(){
 
   $('body').delegate('.x-transaction-toggle-all', 'click', function(e){
@@ -32,5 +51,5 @@ $(document).ready(function(){
     });
   });
 
-
+  $(document).bind("DOMSubtreeModified", detectConfirmations);
 });
