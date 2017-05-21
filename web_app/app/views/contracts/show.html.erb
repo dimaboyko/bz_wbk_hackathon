@@ -4,10 +4,11 @@
 
 <div class="responsive-table x-table-container">
   <% if @contract.transactions.any? %>
-
     <%= render partial: 'contracts/elements/split', locals: { contract: @contract } %>
 
     <hr>
+
+    <%= render 'contracts/elements/items' %>
 
     <%= render partial: 'contracts/elements/friends', locals: { contract: @contract } %>
 
@@ -20,14 +21,10 @@
     <%= render 'contracts/elements/payment_data' %>
 
     <%= render 'contracts/elements/items' %>
-
-  <div class="pull-right">
-    <%= link_to 'Anuluj', contracts_path, class: 'btn btn-default btn-lg' %>
-
-    <button type="button" class="btn btn-primary btn-lg">Zapłać</button>
-
-    <%= link_to 'Podziel',
-      transactions_path, method: :post, remote: true, class: 'x-call-transactions btn btn-success btn-lg' %>
-  </div>
   <% end %>
+
+</div>
+
+<div class="pull-right x-buttons">
+  <%= render partial: 'contracts/elements/buttons', locals: { contract: @contract } %>
 </div>

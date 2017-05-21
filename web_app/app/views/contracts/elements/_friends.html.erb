@@ -1,5 +1,3 @@
-<%= render 'contracts/elements/items' %>
-
 <table class="table table-striped table-bordred">
   <thead>
     <tr>
@@ -13,9 +11,3 @@
   <%= render partial: "transactions/transaction", collection: contract.transactions %>
   </tbody>
 </table>
-
-<div class="pull-right">
-  <%= link_to 'Anuluj', contracts_path, class: 'btn btn-default btn-lg' %>
-
-  <%= link_to 'Zatwierdź', '#', class: 'x-transaction-toggle-all  btn btn-success btn-lg' %>
-</div>

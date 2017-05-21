@@ -1,0 +1,19 @@
+<%= link_to 'Podziel',
+  transactions_path, method: :post, remote: true, class: 'x-call-transactions btn btn-success btn-lg' if contract.transactions.empty? %>
+
+
+<%= link_to 'Zatwierdź', '#', class: 'x-transaction-toggle-all  btn btn-success btn-lg' if contract.transactions.any? %>
+
+
+<!--<%= link_to 'Anuluj', contracts_path, class: 'btn btn-default btn-lg' %>
+
+<button type="button" class="btn btn-primary btn-lg">Zapłać</button>
+-->
+
+
+<!-- friends
+<div class="pull-right">
+  <%= link_to 'Anuluj', contracts_path, class: 'btn btn-default btn-lg' %>
+</div>
+
+ -->
