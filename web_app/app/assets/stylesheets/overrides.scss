@@ -96,3 +96,5 @@ h4, h5, strong {
 .more-spaces {
   padding: 10px 20px;
 }
+
+.table-striped>tbody>tr:nth-of-type(even) { background: #EFF0F2; }
