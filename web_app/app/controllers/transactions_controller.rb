@@ -12,4 +12,18 @@ class TransactionsController < ApplicationController
   def update # {id: 4, amount: -20,  status: 'NEW'}
    # ::Transactions::Updater.perform(transaction_params)
   end
+
+  def sent
+    Transaction.update_all(status: "PAYMENT_REQUESTED")
+    @contract = Contract.last #todo!!!
+    @transactions = @contract.transactions
+    render :create
+  end
+
+  def confirm
+    Transaction.update_all(status: "PAID")
+    @contract = Contract.last #todo!!!
+    @transactions = @contract.transactions
+    render :create
+  end
 end
