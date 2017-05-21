@@ -15,12 +15,12 @@ module Api
 
       def match_product
         client = User.find_by_name(params[:client])
-        order_item = OrderItem.find_by_name(params[:item])
-        OrderItemAssigner.perform(client, order_item)
+        order_item = OrderItem.find_by_name(params[:item].capitalize)
+        OrderItemAssigner.perform(client: client, order_item: order_item)
       end
 
       def ping_phones
-        42 + 42
+        Transaction.update_all(status: "PAYMENT_REQUESTED")
         render json: { status: :ok }, status: :ok
       end
     end
