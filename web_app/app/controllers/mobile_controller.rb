@@ -11,6 +11,7 @@ class MobileController < ApplicationController
   def pay
     @transaction =Transaction.find(params[:id])
     @transaction.update_attributes(status: "PAID")
+    ActionCable.server.broadcast 'documents', message: 'ok'
     redirect_to show_mobile_path(username: @transaction.user.name)
   end
 end
