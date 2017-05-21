@@ -21,8 +21,6 @@
 
     <%= render 'contracts/elements/items' %>
 
-  <% end %>
-
   <div class="pull-right">
     <%= link_to 'Anuluj', contracts_path, class: 'btn btn-default btn-lg' %>
 
@@ -31,4 +29,5 @@
     <%= link_to 'Podziel',
       transactions_path, method: :post, remote: true, class: 'x-call-transactions btn btn-success btn-lg' %>
   </div>
+  <% end %>
 </div>
