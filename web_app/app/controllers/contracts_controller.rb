@@ -4,7 +4,7 @@ class ContractsController < ApplicationController
   before_action :set_contract, only: [:show, :edit, :update, :destroy]
 
   def index
-    respond_with @contracts = Contract.all
+    redirect_to contract_path(100)
   end
 
   def show

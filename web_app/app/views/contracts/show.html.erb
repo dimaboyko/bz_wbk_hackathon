@@ -1,5 +1,16 @@
 <div class='x-main-container'>
-<% if @contract.transactions.any? && @contract.transactions.all? { |t| t.status == 'PAID' } %>
+<% if @contract.blank? %>
+  <div class="text-center">
+      <h1>
+        Brak<br>
+        <small>Na Twoim koncie nie ma jeszcze żadnych konkraktów</small>
+      </h1>
+
+    <br><br>
+    <%= link_to 'Utwórz nowy kontrakt', contracts_path,
+      method: :post, class: 'btn btn-success btn-lg' %>
+  </div>
+<% elsif @contract.transactions.any? && @contract.transactions.all? { |t| t.status == 'PAID' } %>
   <%= render partial: 'contracts/elements/sucess', locals: { contract: @contract } %>
 <% else %>
 
