@@ -28,7 +28,7 @@ en:
       short: "%d %b %H:%M"
       polish: '%d-%m-%Y %H:%M:%S'
   status:
-    NEW: ~
+    NEW: ''
     PAID: ZAPŁACONO
     PAYMENT_REQUESTED: WYSŁANO DO POTWIERDZENIA
-    FRIEND_FOUND: ~
+    FRIEND_FOUND: ''
