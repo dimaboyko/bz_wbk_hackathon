@@ -1,0 +1,43 @@
+<% if contract.blank? %>
+  <div class="text-center">
+      <h1>
+        Brak<br>
+        <small>Na Twoim koncie nie ma jeszcze żadnych konkraktów</small>
+      </h1>
+
+    <br><br>
+    <%= link_to 'Utwórz nowy kontrakt', contracts_path,
+      method: :post, class: 'btn btn-success btn-lg' %>
+  </div>
+<% elsif contract.transactions.any? && contract.transactions.all? { |t| t.status == 'PAID' } %>
+  <%= render partial: 'contracts/elements/sucess', locals: { contract: contract } %>
+<% else %>
+
+  <%= render partial: 'contracts/elements/header', locals: { contract: contract } %>
+
+  <div class="responsive-table transaction-details x-table-container">
+    <% if contract.transactions.any? %>
+        <%= render partial: 'contracts/elements/split', locals: { contract: contract } %>
+
+        <%= render partial: 'contracts/elements/items', locals: { contract: contract } %>
+
+        <%= render partial: 'contracts/elements/friends', locals: { contract: contract } %>
+    <% else %>
+
+      <%= render 'contracts/elements/owner' %>
+
+      <%= render 'contracts/elements/details' %>
+
+      <%= render 'contracts/elements/payment_data' %>
+
+      <%= render partial: 'contracts/elements/items', locals: { contract: contract } %>
+
+    <% end %>
+  </div>
+
+  <br>
+
+  <div class="pull-right x-buttons">
+    <%= render partial: 'contracts/elements/buttons', locals: { contract: contract } %>
+  </div>
+<% end %>

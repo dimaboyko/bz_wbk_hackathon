@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post ':client_id/assign/:order_item_id' => 'order_items#assign', as: :assing_order_item
 
   get 'reset' => 'dev#reset'
+  get 'reload' => 'dev#reload'
   get 'mobile/:username' => 'mobile#show', as: :show_mobile
   post 'mobile/pay/:id' => 'mobile#pay', as: :pay_mobile
 
