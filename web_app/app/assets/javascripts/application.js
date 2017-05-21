@@ -25,9 +25,14 @@ function detectConfirmations(){
     tables.each(function() {
       var that = $(this);
       var delay_val = randomInt(1000, 3000);
+
+      that.find('.x-fetching').removeClass("hide");
+      that.find('.x-confirmed').addClass("hide");
+
       that.delay(delay_val).queue(function() {
         $(this).find('.x-fetching').addClass("hide");
         $(this).find('.x-confirmed').removeClass("hide");
+
         $(this).addClass("table-confirmed");
       });
     });
@@ -35,7 +40,6 @@ function detectConfirmations(){
 };
 
 $(document).ready(function(){
-
   $('body').delegate('.x-transaction-toggle-all', 'click', function(e){
     e.preventDefault();
     $(".x-transaction-link").removeClass('hide')
@@ -51,5 +55,5 @@ $(document).ready(function(){
     });
   });
 
-  $(document).bind("DOMSubtreeModified", detectConfirmations());
+  detectConfirmations();
 });
