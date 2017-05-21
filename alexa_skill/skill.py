@@ -13,15 +13,15 @@ def start_skill():
 def wanna_pay_intent():
     #create contract
     headers = {'X-Api-Key': 'brobill'}
-        #curl -H "X-Api-Key: mochila" http://localhost:3000/api/v1/status.json
-    r = requests.post('http://localhost:3000/api/v1/create_contract.json', headers = headers)
+        #curl -H "X-Api-Key: mochila" https://bz-wbk-hackathon.herokuapp.com/api/v1/status.json
+    r = requests.post('https://bz-wbk-hackathon.herokuapp.com/api/v1/create_contract.json', headers = headers)
 
     return question(render_template('contract_created'))
 
 @ask.intent('SplitIntent')
 def split_intent():
     headers = {'X-Api-Key': 'brobill'}
-    r = requests.post('http://localhost:3000/api/v1/split_the_bill.json', headers = headers)
+    r = requests.post('https://bz-wbk-hackathon.herokuapp.com/api/v1/split_the_bill.json', headers = headers)
 
     list_or_users = {"Jack": False, "Marchin": False, "Radek": False}
     session.attributes['list_or_users'] = list_or_users
@@ -37,7 +37,7 @@ def product_statement(product):
         # send request with {user: product}
         headers = {'X-Api-Key': 'brobill'}
         payload = {'client': user, 'item': product}
-        r = requests.post('http://localhost:3000/api/v1/match_product.json', headers = headers,data = payload)
+        r = requests.post('https://bz-wbk-hackathon.herokuapp.com/api/v1/match_product.json', headers = headers,data = payload)
         a = session.attributes['list_or_users']
         next_user = list({k: v for k, v in a.items() if v == False})[0]
         if next_user:
@@ -49,7 +49,7 @@ def product_statement(product):
 @ask.intent('ConfirmIntent')
 def confirm_intent():
     headers = {'X-Api-Key': 'brobill'}
-    r = requests.post('http://localhost:3000/api/v1/ping_phones.json', headers = headers)
+    r = requests.post('https://bz-wbk-hackathon.herokuapp.com/api/v1/ping_phones.json', headers = headers)
     return statement(render_template('as_soos_as_approved'))
 
 if __name__ == '__main__':
