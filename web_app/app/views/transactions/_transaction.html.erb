@@ -1,4 +1,4 @@
-<tr class="x-transaction x-user-id-<%= transaction.user.id %>">
+<tr class="x-transaction x-user-id-<%= transaction.user.id %> <%= 'alert alert-success' if transaction.status == 'PAID'%>">
   <td class="col-lg-1">
     <%= image_tag "avatars/#{[transaction_counter.succ, 3].min}.png", size: '100x100' %>
   </td>
