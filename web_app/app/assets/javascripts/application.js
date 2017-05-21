@@ -24,7 +24,7 @@ function detectConfirmations(){
   if (tables.length > 0) {
     tables.each(function() {
       var that = $(this);
-      var delay_val = randomInt(1000, 3000);
+      var delay_val = randomInt(2000, 4000);
 
       that.find('.x-fetching').removeClass("hide");
       that.find('.x-confirmed').addClass("hide");
