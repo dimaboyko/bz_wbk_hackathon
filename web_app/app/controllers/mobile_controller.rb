@@ -4,7 +4,7 @@ class MobileController < ApplicationController
 
   def show
     @user = User.find_by_name(params[:username].capitalize)
-    @transaction = @user.transactions.where(status: "PAYMENT_REQUESTED").last
+    @transaction = @user.transactions.where(status: "PAYMENT_REQUESTED").last if @user
     respond_with @transaction
   end
 
