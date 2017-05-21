@@ -53,3 +53,6 @@ $(document).ready(function(){
 
   $(document).bind("DOMSubtreeModified", detectConfirmations);
 });
+
+this.App || {}
+App.cable = ActionCable.createConsumer();

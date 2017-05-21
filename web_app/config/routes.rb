@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
+
   resources :transactions, only: [:create, :update] do
     collection do
       post :sent
