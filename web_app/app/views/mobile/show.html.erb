@@ -1,7 +1,28 @@
+<div class="invoice-v1-header">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Potwierdzenie zapłaty</h2>
+      <hr>
+    </div>
+  </div>
+</div>
 
-<% if @transaction %>
-  Dima has invited you to pay the contract for <%= @transaction.name %> from <%= @transaction.created_at %>
-  <%= link_to 'CONFIRM PAYMENT', pay_mobile_path(id: @transaction.id.to_s), method: :post %>
+<div class="text-center">
+  <% if @transaction %>
+    <h1>
+      Dima has invited you<br>
+      <small>to pay the contract for <%= @transaction.name %>
+        from <%= I18n.l @transaction.created_at, format: :polish %></small>
+    </h1>
+
+    <br><br>
+
+    <%= link_to 'CONFIRM PAYMENT', pay_mobile_path(id: @transaction.id.to_s),
+      method: :post, class: 'btn btn-success btn-lg' %>
+
   <% else %>
-  You have no contracts to pay
+    <h1>
+      You have no contracts to pay
+    </h1>
   <% end -%>
+</div>
