@@ -20,6 +20,7 @@ module Api
       end
 
       def ping_phones
+
         Transaction.update_all(status: "PAYMENT_REQUESTED")
         render json: { status: :ok }, status: :ok
       end
