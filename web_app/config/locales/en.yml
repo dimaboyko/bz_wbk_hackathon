@@ -27,3 +27,8 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
       polish: '%d-%m-%Y %H:%M:%S'
+  status:
+    NEW: NOWY
+    PAID: ZAPŁACONO
+    PAYMENT_REQUESTED: WYSŁANO DO POTWIERDZENIA
+    FRIEND_FOUND: TRANSAKCJA DODANA

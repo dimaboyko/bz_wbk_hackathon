@@ -1,25 +1,25 @@
- <table class="table table-striped">
+<table class="table">
   <tbody>
     <tr>
-      <th class="col-md-8">Szczegóły</th>
-      <th></th>
-    </tr>
-    <tr>
-      <td>
-        <strong>
-          <ul class="list-group">
-            <% @contract.order.order_items.each do |order_item| %>
-              <li>
-                <span class="pull-right"><%= order_item.amount %> PLN</span>
-                <p><%= order_item.name %></p>
-              </li>
-            <% end -%>
-          </ul>
-        </strong>
+      <td class="col-lg-8">
+        <h5>Szczegóły</h5>
+        <ul class="list-group cell-content">
+          <% contract.order.order_items.each do |order_item| %>
+            <li>
+              <span class="pull-right"><%= order_item.amount %> PLN</span>
+              <p><%= order_item.name %></p>
+            </li>
+          <% end -%>
+        </ul>
       </td>
       <td>
-        <strong>Menu:</strong>
-        <p>Pozycje zgodne</p>
+        <h5>Potwierdzenie</h5>
+        <div class="alert alert-custom" role="alert">Potwierdzam warunek transakcji...</div>
+        <div class="alert alert-success" role="alert">
+          <strong>MENU_WIOSNA_2017.JSON</strong>
+          <p>Plik menu jest aktualny</p>
+          <span class="label label-success">Pozycje są zgodne</span>
+        </div>
       </td>
     </tr>
   </tbody>

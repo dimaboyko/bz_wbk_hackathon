@@ -1,11 +1,15 @@
 $('.x-call-transactions').remove();
 
-// show split bill header
-$('.x-split-container').html('<%= j(render partial: "contracts/elements/split",
-  locals: { contract: @contract }) %>')
+// replace tables with split bill header
+$('.x-table-container').html('<%= j(render partial: "contracts/elements/split",
+  locals: { contract: @contract }) %>');
 
-// replace tables with friends table
-$('.x-table-container').html('<%= j(render partial: "contracts/elements/friends",
+// replace tables with items table
+$('.x-table-container').append('<%= j(render partial: "contracts/elements/items",
+  locals: { contract: @contract }) %>');
+
+// append items table with friends table
+$('.x-table-container').append('<%= j(render partial: "contracts/elements/friends",
   locals: { contract: @contract }) %>');
 
 // fill friends list
