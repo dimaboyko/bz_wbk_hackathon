@@ -8,7 +8,7 @@ ask  = Ask(app,'/')
 @ask.launch
 def start_skill():
     return question(render_template('welcome'))
-
+#https://bz-wbk-hackathon.herokuapp.com
 @ask.intent('WannaPayIntent')
 def wanna_pay_intent():
     #create contract
