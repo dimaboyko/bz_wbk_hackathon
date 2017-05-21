@@ -4,6 +4,7 @@
   </td>
   <td>
     <h4><%= transaction.user.name %></h4>
+    <p>STAUTS: <%= I18n.t(transaction.status, scope: :status) %></p>
   </td>
 
   <% if transaction.status == 'FRIEND_FOUND'  %>

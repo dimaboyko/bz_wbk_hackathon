@@ -1,12 +1,98 @@
 .invoice .invoice-v1-content {
-  margin-top: 0;
-  padding-top: 0;
-
-  table {
-    margin-bottom: 10px;
-  }
+  padding-top: 0px;
+  margin-top: 0px;
 }
 
 a:hover {
   font-weight: 400;
+}
+
+body {
+  background: white;
+  color: #1f2026;
+}
+
+p {
+  margin: 0 0 1px;
+  color: #1f2026;
+}
+.invoice-v1-header {
+  padding-bottom: 20px;
+}
+.invoice-v1-header p strong{
+  font-size: 18px;
+}
+
+.invoice .invoice-v1-content {
+  border: 1px solid #ccc;
+}
+
+.invoice-v1 {
+  padding: 0 20px;
+  background: white;
+}
+.belka-top {
+  margin: 10px 0;
+}
+
+.bzwbk-logo {
+  height: 40px;
+  width: 160px;
+  float: left;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.table {
+  margin: 0;
+}
+
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  border: 0px;
+}
+
+h4, h5, strong {
+  color: #1f2026;
+}
+
+.cell-content{
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.links {
+  float: right;
+}
+
+.links ul li {
+  float: right;
+  margin-left: 40px;
+  font-size: 18px;
+  line-height: 40px;
+}
+.links ul li.active {
+  font-weight: bold;
+  color: black;
+}
+.transaction-details {
+  background: #eff0f2;
+}
+
+.alert-custom {
+  background: #ccc;
+  text-align: center;
+}
+.alert {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.label-success {
+  background: #005f27 !important;
+}
+.table-confirmed {
+  background: #dff0d8;
+}
+.more-spaces {
+  padding: 10px 20px;
 }

@@ -1,14 +1,10 @@
 <%= render partial: 'contracts/elements/header', locals: { contract: @contract } %>
 
-<div class="x-split-container"></div>
-
-<div class="responsive-table x-table-container">
+<div class="responsive-table transaction-details x-table-container">
   <% if @contract.transactions.any? %>
     <%= render partial: 'contracts/elements/split', locals: { contract: @contract } %>
 
-    <hr>
-
-    <%= render 'contracts/elements/items' %>
+    <%= render partial: 'contracts/elements/items', locals: { contract: @contract } %>
 
     <%= render partial: 'contracts/elements/friends', locals: { contract: @contract } %>
 
@@ -20,10 +16,11 @@
 
     <%= render 'contracts/elements/payment_data' %>
 
-    <%= render 'contracts/elements/items' %>
+    <%= render partial: 'contracts/elements/items', locals: { contract: @contract } %>
   <% end %>
-
 </div>
+
+<br>
 
 <div class="pull-right x-buttons">
   <%= render partial: 'contracts/elements/buttons', locals: { contract: @contract } %>
