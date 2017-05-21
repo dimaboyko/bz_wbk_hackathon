@@ -51,5 +51,5 @@ $(document).ready(function(){
     });
   });
 
-  $(document).bind("DOMSubtreeModified", detectConfirmations);
+  $(document).bind("DOMSubtreeModified", detectConfirmations());
 });
